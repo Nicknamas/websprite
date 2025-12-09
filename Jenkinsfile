@@ -28,6 +28,9 @@ pipeline {
             )
           ]
         )
+        sshagent(credentials : ['production-server']) {
+          sh 'ssh -tt jenkins@109.73.196.251 -o StrictHostKeyChecking=no "docker load -i /var/www/html/websprite.tar"'
+        }
       }
     }
   }
