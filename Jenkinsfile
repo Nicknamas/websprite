@@ -29,7 +29,7 @@ pipeline {
                   remoteDirectory: '', 
                   remoteDirectorySDF: false, 
                   removePrefix: '', 
-                  sourceFiles: '*')
+                  sourceFiles: './dist/*')
               ], 
               usePromotionTimestamp: false, 
               useWorkspaceInPromotion: false, verbose: false
