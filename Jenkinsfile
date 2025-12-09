@@ -19,7 +19,7 @@ pipeline {
               configName: 'production-server', 
               transfers: [
                 sshTransfer(
-                  execCommand: 'docker load -i websprite.tar',
+                  execCommand: 'touch test.text',
                   remoteDirectory: '', 
                   removePrefix: '', 
                   sourceFiles: '*.tar'
