@@ -4,10 +4,10 @@ pipeline {
   agent any
 
   stages {
-    stage("Build and up") {
+    stage("Build and save") {
       steps {
-        sh "npm install"
-        sh "npm run build"
+        sh "docker build -t websprite:latest ."
+        sh "docker save -o websprite.tar websprite:latest"
       }
     }
     stage("Deploy") {
@@ -18,21 +18,12 @@ pipeline {
               configName: 'production-server', 
               transfers: [
                 sshTransfer(
-                  cleanRemote: false, 
-                  excludes: '', 
-                  execCommand: '', 
-                  execTimeout: 120000, 
-                  flatten: false, 
-                  makeEmptyDirs: false, 
-                  noDefaultExcludes: false, 
-                  patternSeparator: '[, ]+', 
+                  execCommand: 'docker load -i ./websprite.tar && docker run -d websprite:latest', 
                   remoteDirectory: '', 
-                  remoteDirectorySDF: false, 
                   removePrefix: '', 
-                  sourceFiles: './dist/*')
+                  sourceFiles: './websprite.tar'
+                )
               ], 
-              usePromotionTimestamp: false, 
-              useWorkspaceInPromotion: false, verbose: false
             )
           ]
         )
