@@ -1,9 +1,7 @@
 #!groovy
 
-def agentLabel = "prod"
-
 pipeline {
-  agent { label agentLabel }
+  agent any
 
   stages {
     stage("Build and up") {
