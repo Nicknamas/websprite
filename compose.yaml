@@ -1,0 +1,8 @@
+services:
+  websprite:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: websprite
+    ports:
+      - "8080:8080"
