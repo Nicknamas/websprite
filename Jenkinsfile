@@ -6,8 +6,8 @@ pipeline {
   stages {
     stage("Build and up") {
       steps {
-        sh "docker compose up --build"
         sh "ifconfig"
+        sh "docker compose up --build"
       }
     }
   }
