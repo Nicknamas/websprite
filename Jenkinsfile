@@ -22,7 +22,7 @@ pipeline {
                   execCommand: '',
                   remoteDirectory: '', 
                   removePrefix: '', 
-                  sourceFiles: './websprite.tar'
+                  sourceFiles: '*.tar'
                 )
               ], 
             )
