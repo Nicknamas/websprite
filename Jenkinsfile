@@ -8,6 +8,7 @@ pipeline {
       steps {
         sh "docker build -t websprite:latest ."
         sh "docker save -o websprite.tar websprite:latest"
+        sh "ls -la"
       }
     }
     stage("Deploy") {
