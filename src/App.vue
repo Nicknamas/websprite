@@ -4,7 +4,7 @@ import HelloWorld from "./components/HelloWorld.vue";
 
 <template>
   <div>
-    hello from me 1
+    hello from me 2
     <a href="https://vite.dev" target="_blank">
       <img src="/vite.svg" class="logo" alt="Vite logo" />
     </a>

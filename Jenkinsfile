@@ -24,7 +24,9 @@ pipeline {
                   execCommand: 
                   '''
                   docker load -i /var/www/html/*.tar
-                  docker restart websprite-app
+                  docker stop websprite-app
+                  docker rm websprite-app
+                  docker run --name websprite-app -d -p 8080:8080 websprite
                   ''', 
                   execTimeout: 120000, 
                   flatten: false, 
