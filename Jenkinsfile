@@ -23,9 +23,8 @@ pipeline {
                   excludes: '', 
                   execCommand: 
                   '''
-                  docker restart websprite-app
                   docker load -i /var/www/html/*.tar
-                  docker run --name websprite-app -d -p 8080:8080 websprite
+                  docker restart websprite-app
                   ''', 
                   execTimeout: 120000, 
                   flatten: false, 
