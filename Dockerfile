@@ -26,7 +26,7 @@ RUN npm run build
 # Stage 2: Prepare Nginx to Serve Static Files
 # =========================================
 
-FROM nginxinc/nginx-unprivileged:${NGINX_VERSION} AS runner
+FROM nginx:1.29.4 AS runner
 
 # Use a built-in non-root user for security best practices
 USER nginx
